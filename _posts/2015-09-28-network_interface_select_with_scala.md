@@ -13,7 +13,7 @@ share: true
 
 During my last project [wheretolive-feed](https://github.com/DataToKnowledge/wheretolive-feed) I need to select the network interface to use [Akka Cluster](http://doc.akka.io/docs/akka/snapshot/scala/cluster-usage.html) with [Docker](https://www.docker.com/).<br>I tried with the solution showed in [akka-docker-cluster-example](https://github.com/mhamrah/akka-docker-cluster-example) which injects a bash command in the docker entrypoint, but it does not works with the last Docker image for java.
 
-```
+```scala
 dockerEntrypoint in Docker := Seq("sh", "-c", "CLUSTER_IP=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }'` bin/clustering $*")
 ```
 
