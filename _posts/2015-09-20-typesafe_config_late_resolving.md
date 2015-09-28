@@ -26,7 +26,7 @@ and [Sbt-Native-Packager](http://www.scala-sbt.org/sbt-native-packager/) I need 
 
 In the following there is the configuration file used.
 
-{% highlight scala %}
+```scala
 include "common.conf"
 
 akka {
@@ -50,17 +50,17 @@ clustering {
   clusterName = "ClusterSystem"
 }
 
-{% endhighlight %}
+```
 
 You can seed that I need to pass a `clustering.ip` configuration to the `seed-nodes` for the `cluster` configuration. Here the problem is that if I do something like
 
-{% highlight scala %}
+```scala
 val config = ConfigFactory.parseString(
   s"""
     clustering.ip = ${ipAddress}
   """.stripMargin).
   withFallback(ConfigFactory.load("application.con"))
-{% endhighlight %}
+```
 
 I get an error for the missing `clustering.ip` configuration.
 
@@ -68,7 +68,7 @@ I get an error for the missing `clustering.ip` configuration.
 
 - Load a `baseConfig` allowing missing configurations and not resolving them.
 
-{% highlight scala %}
+```scala
 import com.typesafe.config.{ ConfigParseOptions, ConfigResolveOptions, ConfigFactory }
 
 val baseConfig = ConfigFactory.load(
@@ -76,42 +76,42 @@ val baseConfig = ConfigFactory.load(
   ConfigParseOptions.defaults.setAllowMissing(true),
   ConfigResolveOptions.defaults.setAllowUnresolved(true)
 )
-{% endhighlight %}
+```
 
 - loading the ip address
 
-{% highlight scala %}
+```scala
 val ipAddress = HostIp.load().getOrElse("127.0.0.1")
 print(s"detected ip $ipAddress")
-{% endhighlight %}
+```
 
 - add the configuration and call the resolve method
 
-{% highlight scala %}
+```scala
 val config = ConfigFactory.parseString(
   s"""
     clustering.ip = ${ipAddress}
   """.stripMargin).
   withFallback(baseConfig).resolve
-{% endhighlight %}
+```
 
 Here it is! Now the ip address is correctly resolved and the `cluster` configuration is correctly evaluated. 
 
-{% highlight scala %}
+```scala
   cluster {
     roles = [feed-manager]
     seed-nodes = [
       "akka.tcp://"${clustering.clusterName}"@"${clustering.ip}":"${clustering.port}
     ]
   }
-{% endhighlight %}
+```
 
 ### Conclusion
 To get a complete example of the solution you can check the [wheretolive-feed project](http://github.com/DataToKnowledge/wheretolive-feed) on [Github](http://github.com).
 
 Another solution can be passing the needed parameters via command line.
 
-{% highlight bash %}
+```bash
 -Dapp.initialContacts.0 = "akka.tcp://ClusterSystem@127.0.0.1:5000/user/receptionist"
-{% endhighlight %}
+```
 
