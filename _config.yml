@@ -48,7 +48,10 @@ links:
 timezone:    Rome/Italy
 future:      true
 highlighter: pygments
-markdown:    kramdown
+#markdown:    kramdown
+markdown: redcarpet2
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 paginate:    5
 paginate_path: "page:num"
 
@@ -155,6 +158,3 @@ prose:
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
-markdown: redcarpet2
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
