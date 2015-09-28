@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to select a network interface in scala
+title: How to select a network interface from scala
 description: "This post explain how to access to network interfaces in linux from scala"
 modified: 2015-09-28
 category: articles
