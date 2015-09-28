@@ -11,9 +11,6 @@ comments: true
 share: true
 ---
 
-Typesafe Config Late Resolving
------------------------
-
 [Typesafe/Config](https://github.com/typesafehub/config) is a powerful library to deal with configurations I really like it but sometimes it makes me mad.
 
 In this post I want to share how to deal in situation when you need late resolving for your configs.
