@@ -263,12 +263,12 @@ main, .notepad-share-icons, .notepad-disqus {
       margin-bottom: 0.9375rem; } }
   .notepad-content .notepad-index-post .notepad-post-excerpt {
     color: black;
-    font-size: 0.85rem;
+    font-size: 1rem;
     margin-top: 0.625rem;
     text-align: center; }
     .notepad-content .notepad-index-post .notepad-post-excerpt p {
       margin: 0;
-      font-size: 0.85rem; }
+      font-size: 1rem; }
   @media only screen and (min-width: 40.063em) {
     .notepad-content .notepad-index-post .notepad-post-excerpt {
       text-align: left; } }
