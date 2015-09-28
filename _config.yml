@@ -49,7 +49,7 @@ timezone:    Rome/Italy
 future:      true
 highlighter: pygments
 #markdown:    kramdown
-markdown: redcarpet2
+markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 paginate:    5

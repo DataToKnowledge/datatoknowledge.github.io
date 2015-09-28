@@ -1,29 +1,26 @@
 ---
 layout: post
 title: How to select a network interface from scala
-description: "This post explain how to access to network interfaces in linux from scala"
-modified: 2015-09-28
+description: This post explain how to access to network interfaces in linux from scala
+modified: 2015-09-28T00:00:00.000Z
 category: articles
-tags: [scala typesafe akka docker network interface]
+tags:
+  - scala typesafe akka docker network interface
 imagefeature: cover6.jpg
 comments: true
 share: true
 ---
 
-During my last project [wheretolive-feed](https://github.com/DataToKnowledge/wheretolive-feed) I need to select the network interface to use [Akka Cluster](http://doc.akka.io/docs/akka/snapshot/scala/cluster-usage.html) with [Docker](https://www.docker.com/).
-I tried with the solution showed in [akka-docker-cluster-example](https://github.com/mhamrah/akka-docker-cluster-example) which injects a bash command in the docker entrypoint, but it does not works with the last Docker image for java.
-
-```sbt
-dockerEntrypoint in Docker := Seq("sh", "-c", "CLUSTER_IP=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }'` bin/clustering $*")
+During my last project [wheretolive-feed](https://github.com/DataToKnowledge/wheretolive-feed) I need to select the network interface to use [Akka Cluster](http://doc.akka.io/docs/akka/snapshot/scala/cluster-usage.html) with [Docker](https://www.docker.com/).<br>I tried with the solution showed in [akka-docker-cluster-example](https://github.com/mhamrah/akka-docker-cluster-example) which injects a bash command in the docker entrypoint, but it does not works with the last Docker image for java.
 
 ```
+dockerEntrypoint in Docker := Seq("sh", "-c", "CLUSTER_IP=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1 }'` bin/clustering $*")
+```
 
-### Proposed solution
+# Proposed solution
 Thus, my solution is based on:
-
 1. enumerating the network interfaces bind to the host
 2. to inject the selected network interface by name
-
 
 ```scala
 import scala.collection.JavaConversions._
@@ -52,7 +49,6 @@ object HostIp {
     }
   }
 }
-
 ```
 
 - The method `findAll` enumerate all the available network interfaces
