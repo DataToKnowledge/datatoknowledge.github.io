@@ -59,7 +59,7 @@ chmod a+x /usr/local/bin/weave
 ```
 
 ### Starting Weave
->We are running all the command as `sudo` user please don't do that in production, add weave to sudoers such as docker
+We are running all the command as `sudo` user please don't do that in production, add weave to sudoers such as docker
 
 Now we can create a peer connection between the two hosts.
 
