@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setup Weave 1.1.0 on Multiple VMs
+title: Connect Docker instances across multiple cloud providers
 description: "This post explains how to setup a private network on multiple cloud providers using docker and weave"
 modified: 2015-10-01
 category: guide
@@ -9,6 +9,8 @@ imagefeature: cover6.jpg
 comments: true
 share: true
 ---
+
+## What does weave do?
 
 [weave.works](http://weave.works/) solves the problem of creating networks of Docker containers without opening several ports to allow them to communicate. This post is the getting started of a tutorial in which we will show how:
 
