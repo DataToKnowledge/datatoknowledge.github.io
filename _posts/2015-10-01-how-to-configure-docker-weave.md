@@ -3,8 +3,8 @@ layout: post
 title: Setup Weave 1.1.0 on Multiple VMs
 description: "This post explains how to setup a private network on multiple cloud providers using docker and weave"
 modified: 2015-10-01
-category: articles
-tags: [docker, weave, network]
+category: guide
+tags: [docker, weave, network, how to]
 imagefeature: cover6.jpg
 comments: true
 share: true
