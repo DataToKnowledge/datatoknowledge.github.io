@@ -10,7 +10,7 @@ comments: true
 share: true
 ---
 
-[Weave](http://weave.works/) (http://weave.works/) solves the problem of creating networks of Docker containers without opening several ports to allow them to communicate. This post is the getting started of a tutorial in which we will show how:
+[weave.works](http://weave.works/) solves the problem of creating networks of Docker containers without opening several ports to allow them to communicate. This post is the getting started of a tutorial in which we will show how:
 
 1. to create a cluster of docker that can communicate across VMs without opening any other port except the 6783 tcp/udp, 
 2. to give access to your services using a reverse proxy and weave dns
@@ -18,7 +18,7 @@ share: true
 
 ## Rationale
 
-We come to Weave when we got [Azure MSDN](https://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/) subscription and we had to manage several subscriptions. At first, we try to map each service to each port but this was a problem when you have service such as Spark or Elasticsearch that decide communication ports at runtime. 
+We come to [Weave]((http://weave.works/)) when we got [Azure MSDN](https://azure.microsoft.com/it-it/pricing/member-offers/msdn-benefits-details/) subscription and we had to manage several subscriptions. At first, we try to map each service to each port but this was a problem when you have service such as Spark or Elasticsearch that decide communication ports at runtime. 
 
 ##How to install Weave on Ubuntu
 
